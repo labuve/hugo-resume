@@ -4,7 +4,7 @@
 	<div class="my-auto">
 		<div class="resume-item d-flex flex-column flex-md-row">
 			<div class="resume-content pr-6 mb-5" id="about_card">
-				<span class="d-none d-lg-block">
+				<span class="d-none d-lg-block center">
 					{{ if .Site.Params.profileImage }}
 						<img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ .Site.Params.profileImage | relURL }}" alt="">
 					{{ else }}
@@ -14,10 +14,10 @@
 						</span>
 					{{ end }}
 				</span>
-				<h1 class="mb-0">{{ .Site.Params.firstName }}
+				<h1 class="mb-0 center">{{ .Site.Params.firstName }}
 					<span class="text-primary">{{ .Site.Params.lastName }}</span>
 				</h1>
-				<div class="subheading mb-5">
+				<div class="subheading mb-5 center">
 					{{ .Site.Params.university }} ·
 					<a href="mailto:{{ .Site.Params.primaryEmail }}">{{ .Site.Params.primaryEmail }}</a>
 				</div>
