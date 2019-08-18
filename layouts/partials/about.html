@@ -34,8 +34,8 @@
 				{{ .Content }}
 				<div class="my-5">
 					<h4>Research Interests</h4>
-					{{ range .Params.research_interests }}
-						<li>{{ . }}</li>
+					{{ range $i,$e := .Params.research_interests }}
+						{{ if $i }} · {{ end }} {{ title . }}
 					{{ end }}
 				</div>
 			</div>
