@@ -13,7 +13,15 @@
 							{{ if .department }} {{ .department }},  {{ end }}{{ .company }}
 						{{ end }}
 					</div>
-					<p>{{ .summary }}</p>
+					{{ if gt (len .summary) 1}}
+						{{ range .summary }}
+							<div class="experience-summary-list pl-5">
+								<li>{{ . }}</li>
+							</div> 
+						{{ end }}
+					{{ else }}
+						<p>{{ index (.summary) 0 }}</p>
+					{{ end }}
 				</div>
 				<div class="resume-date text-md-right">
 					<span class="text-primary">{{ .range }}</span>
