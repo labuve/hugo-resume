@@ -6,8 +6,11 @@
 	{{ if .Site.Params.showPublications }}
 		{{ partial "portfolio/publications.html" . }}
 	{{ end }}
-		{{ if .Site.Params.showExperience }}
+	{{ if .Site.Params.showExperience }}
 		{{ partial "portfolio/experience.html" . }}
+	{{ end }}
+	{{ if .Site.Params.showTeaching }}
+		{{ partial "portfolio/teaching.html" . }}
 	{{ end }}
 	{{ if .Site.Params.showSkills }}
 		{{ partial "portfolio/skills.html" . }}
