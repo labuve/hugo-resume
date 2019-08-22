@@ -2,12 +2,12 @@
   <div class="my-auto" id="{{ .Scratch.Get "sectionId" }}-content">
     <h2 class="mb-5"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <p>{{ .Content }}</p>
-    {{ $featuredPages := where .Pages "Params.featured" true }}
-    {{ range $featuredPages }}
+	{{ $number_pages_summary := 3 }}
+    {{ range first $number_pages_summary .Pages }}
       {{ partial (printf "%s%s" .Section "Summary") . }}
     {{ end }}
   </div>
-  {{ if gt .Pages $featuredPages }}
+  {{ if gt (len .Pages) $number_pages_summary }}
     <div class="my-auto">
 		<form action="{{ .Permalink }}">
 			<button type="submit">See all posts</button>
