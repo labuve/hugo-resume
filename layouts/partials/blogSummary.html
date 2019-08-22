@@ -12,7 +12,16 @@
     <p>{{ partial "techtags" . }}</p>
   </div>
   <div class="resume-date text-md-right">
-    <span class="text-primary">{{ .Date.Format "January 2, 2006" }}</span>
+    <span class="text-primary">
+		{{ if .PublishDate }}
+			{{ .PublishDate.Format "January 2, 2006"}}
+		{{ else }}
+			{{ .Date.Format "January 2, 2006" }}
+		{{ end }}
+	</span>
+	{{ if .Lastmod }}
+		<p class="small">updated {{ .Lastmod.Format "January 2, 2006" }}</p>
+	{{ end }}
     <img src="{{ .Params.image }}" style="max-width:250px;padding:5px;"/>
   </div>
 </div>
