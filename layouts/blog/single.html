@@ -21,9 +21,19 @@
 			{{ end }}
 		</p>
 	{{ end }}
-    {{ .Content }}
-    {{ with .Params.link }}<p>Project link: <a href="{{ . }}">{{ . }}</a></p>{{ end }}
-    {{ partial "techtags" . }}
+	{{ if .Params.includeTOC }}
+		<div class="clearfix">
+			<div class="float-left mr-5 mb-3">
+				<b>Table of Contents</b>
+				{{ .TableOfContents }}
+			</div>
+			
+				{{ .Content }}
+				{{ with .Params.link }}<p>Project link: <a href="{{ . }}">{{ . }}</a></p>{{ end }}
+				{{ partial "techtags" . }}
+			
+		</div>
+	{{ end }}
   </div>
 </section>
 {{ end }}
