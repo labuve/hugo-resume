@@ -33,6 +33,10 @@
 				{{ partial "techtags" . }}
 			
 		</div>
+	{{ else }}
+		{{ .Content }}
+		{{ with .Params.link }}<p>Project link: <a href="{{ . }}">{{ . }}</a></p>{{ end }}
+		{{ partial "techtags" . }}
 	{{ end }}
   </div>
 </section>
