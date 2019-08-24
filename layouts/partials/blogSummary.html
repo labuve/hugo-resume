@@ -20,7 +20,7 @@
 		{{ end }}
 	</span>
 	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
-	{{ if gt $diff 1 }}
+	{{ if ge $diff 1 }}
 		<p class="small">updated {{ .Lastmod.Format "January 2, 2006" }}</p>
 	{{ end }}
     <img src="{{ .Params.image }}" style="max-width:250px;padding:5px;"/>
