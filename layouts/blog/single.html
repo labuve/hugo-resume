@@ -11,6 +11,7 @@
 		{{ end }}
 	</span> 
 	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
+	{{ $diff }} {{ .Lastmod }}
 	{{ if gt $diff 1 }}
 		| updated {{ .Lastmod.Format "January 2, 2006" }}
 	{{ end }}
