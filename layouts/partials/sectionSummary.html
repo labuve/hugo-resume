@@ -2,10 +2,14 @@
   <div class="my-auto" id="{{ .Scratch.Get "sectionId" }}-content">
     <h2 class="mb-5"><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
     <p>{{ .Content }}</p>
-	{{ $number_pages_summary := 3 }}
-    {{ range first $number_pages_summary .Pages }}
-      {{ partial (printf "%s%s" .Section "Summary") . }}
-    {{ end }}
+    <div class="d-flex flex-column flex-md-row">
+      <div class="my-auto mx-auto">
+        {{ $number_pages_summary := 3 }}
+        {{ range first $number_pages_summary .Pages }}
+          {{ partial (printf "%s%s" .Section "Summary") . }}
+        {{ end }}
+      </div>
+    </div>
   </div>
   {{ if gt (len .Pages) $number_pages_summary }}
     <div class="my-auto">
