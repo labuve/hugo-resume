@@ -1,0 +1,19 @@
+<section id="teaching">
+    {{ range .Site.Data.teaching }}
+		<h2>Teaching experience</h2>
+		<table>
+			<tr>
+				<td class="resume-date">{{ .range }}</td>
+				<td class="resume-content">{{ .role }} at {{ if .department }} {{ .department }},  {{ end }} {{ .company }}</td>
+			</tr>
+			<tr>
+				<td class="resume-date"></td>
+				<td class="resume-content pl-4">
+					{{ range .courses }}
+						<li><b>{{ .name }}</b>{{ if .range }}, {{ .range }} {{ end }}</li>
+					{{ end }}
+				</td>
+			</tr>
+		</table>
+    {{ end }}
+</section>

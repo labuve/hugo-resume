@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>CV_{{ .Site.Params.firstName }}_{{ .Site.Params.lastName }} </title>
+	<meta property="og:title" content="{{ .Title }}" />
+	<meta property="og:image" content="{{ .Site.Params.profileImage | absURL }}" />
+	<meta name="description" content="{{ .Site.Params.description }}">
+	<meta property="og:description" content="{{ .Site.Params.description }}" />
+	<meta name="author" content="{{ .Site.Params.firstName }} {{ .Site.Params.lastName }}">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom fonts for this template -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif&display=swap' rel='stylesheet'>
+	<style type="text/css">
+	  @font-face {
+		font-family: "Computer Modern";
+		src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+	  }
+	  @font-face {
+		font-family: "Computer Modern";
+		src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+		font-weight: bold;
+	  }
+	  @font-face {
+		font-family: "Computer Modern";
+		src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+		font-style: italic, oblique;
+	  }
+	  @font-face {
+		font-family: "Computer Modern";
+		src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+		font-weight: bold;
+		font-style: italic, oblique;
+	  }
+
+	  body {
+		font-family: "Computer Modern", sans-serif;
+	  }
+	</style>
+	<!-- Custom styles for this template -->
+	<link href="{{ "css/print_version.css" | absURL }}" rel="stylesheet" type="text/css">
+	<!-- Website icon -->
+	<link rel="shortcut icon" href="{{ .Site.Params.favicon }}">
+</head>
+<body>
+	<div class="container-fluid p-0">
+		{{ block "main" . }}
+			{{ .Content }}
+		{{ end }}
+	</div>
+</body>
+</html>

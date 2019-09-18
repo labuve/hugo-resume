@@ -1,0 +1,41 @@
+<section id="publications">
+	{{ range .Site.Data.publications }}
+		<h2>{{ .section }} </h2>
+		{{ range .content }}
+			{{ if .date }}
+				<tr>
+					<td>{{ .date }}</td>
+					<td>
+						<a href = "{{ .link }}">"{{ .title }}"</a>
+						{{ if .coauthors }}
+							with 
+							<span class="pubcoauthors">
+								{{ range $i, $e := .coauthors }}
+									{{ if $i }}, {{ end }}{{ $e }}
+								{{ end }}
+							</span>
+						{{ end }}
+						in <span class="journal">{{ .journal }}</span>
+					</td>
+				</tr>
+			{{ else }}
+				<p style="line-height: 1; ">
+					<span class="pubtitle">{{ .title }}</span>
+					{{ if .coauthors }}
+						with 
+						<span class="pubcoauthors">
+							{{ range $i, $e := .coauthors }}
+								{{ if $i }}, {{ end }}{{ $e }}
+							{{ end }}
+						</span>
+					{{ end }}
+				</p>
+			{{ end }}
+			{{ if $.Site.Params.showAbstractPrint }}
+				{{ if .abstract }}
+					<p class="pubabstract">{{ .abstract | safeHTML }}</p>
+				{{ end }}
+			{{ end }}
+		{{ end }}
+	{{ end }}
+</section>

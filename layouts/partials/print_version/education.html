@@ -1,0 +1,11 @@
+<section id="education">
+	<h2>Education</h2>
+	<table>
+		{{ range .Site.Data.education }}
+			<tr>
+				<td class="resume-date">{{ .range }}</td>
+				<td class="resume-content"><b>{{ .degree }}</b>, {{ .school }} {{ if .distinction }} ({{ .distinction }}) {{ end }}</td>
+			</tr>
+		{{ end }}
+	</table>
+</section>

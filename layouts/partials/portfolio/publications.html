@@ -3,23 +3,25 @@
     {{ range .Site.Data.publications }}
 		<h2 class="mb-5">{{ .section }} </h2>
 		{{ range .content }}
-			<div class="resume-item d-flex flex-column flex-md-row mb-5">
-				<div class="resume-content mr-auto">
-					{{ if .date }}
-						<h3 class="mb-0"><a href = "{{ .link }}">{{ .title }} ({{ .date }})</a></h3>
-						<div class="subheading mb-3">{{ .journal }}</div>
-					{{ else }}
-						<h3 class="mb-0">{{ .title }}</h3>
-					{{ end }}
-					{{ if .coauthors }}
-						<b>with {{ range $i, $e := .coauthors }}
-							{{ if $i }}, {{ end }}{{ $e }}
-						{{ end }}
-						</b>
-					{{ end }}
-					{{ if .abstract }} <p>{{ .abstract | safeHTML }}</p> {{ end }}
-				</div>
-			</div>
+      {{ if not .hidden }}
+  			<div class="resume-item d-flex flex-column flex-md-row mb-5">
+  				<div class="resume-content mr-auto">
+  					{{ if .date }}
+  						<h3 class="mb-0"><a href = "{{ .link }}">{{ .title }} ({{ .date }})</a></h3>
+  						<div class="subheading mb-3">{{ .journal }}</div>
+  					{{ else }}
+  						<h3 class="mb-0">{{ .title }}</h3>
+  					{{ end }}
+  					{{ if .coauthors }}
+  						<b>with {{ range $i, $e := .coauthors }}
+  							{{ if $i }}, {{ end }}{{ $e }}
+  						{{ end }}
+  						</b>
+  					{{ end }}
+  					{{ if .abstract }} <p>{{ .abstract | safeHTML }}</p> {{ end }}
+  				</div>
+  			</div>
+      {{ end }}
 		{{ end }}
 	{{ end }}
   </div>

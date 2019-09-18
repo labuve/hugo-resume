@@ -1,0 +1,11 @@
+<section id="seminars">
+	<h2>Seminars and Conferences</h2>
+	<table>
+		{{ range .Site.Data.seminars }}
+			<tr>
+				<td class="resume-date">{{ .date }}</td>
+				<td class="resume-content">{{ .name }} ({{ .place }})</td>
+			</tr>
+		{{ end }}
+	</table>
+</section>

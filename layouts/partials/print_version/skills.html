@@ -1,0 +1,10 @@
+<section id="skills">
+	{{ range $.Site.Data.skills }}
+		<h2>{{ .grouping }}</h2>
+		<p>
+			{{ range $i,$e := .skills }}
+				{{ if $i }} · {{ end }}{{ $e.name }}
+			{{ end }}
+		</p>
+	{{ end }}
+</section>

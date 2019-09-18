@@ -1,0 +1,11 @@
+<section id="awards">
+	<h2>Awards</h2>
+	<table>
+		{{ range .Site.Data.awards }}
+			<tr>
+				<td class="resume-date">{{ .date }}</td>
+				<td class="resume-content"><b>{{ .name }}</b> {{ .description }}</td>
+			</tr>
+		{{ end }}
+	</table>
+</section>

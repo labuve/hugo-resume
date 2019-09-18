@@ -1,0 +1,34 @@
+<section id="experience">
+    {{ range .Site.Data.experience }}
+		<h2>{{ .section }}</h2>
+		<table>
+			{{ range .content }}
+				<tr>
+					<td class="resume-date">{{ .range }}</td>
+					<td class="resume-content">{{ .role }} 
+					{{ if .employer }}
+						to {{ .employer }}
+					{{ else }} 
+						at the {{ if .department }} {{ .department }},  {{ end }} {{ .company }}
+					{{ end }}</td>
+				</tr>
+				<!--{{ if .summary }} 
+				<tr>
+					<td class="resume-date"></td>
+					<td class="resume-content">
+						{{ if gt (len .summary) 1}}
+							{{ range .summary }}
+								<div class="experience-summary-list pl-4">
+									<li>{{ . }}</li>
+								</div>
+							{{ end }}
+						{{ else }}
+							{{ index (.summary) 0 }}
+						{{ end }}
+					</td>
+				</tr>
+				{{ end }}-->
+			{{ end }}
+		</table>
+    {{ end }}
+</section>
