@@ -1,27 +1,19 @@
 <div class="resume-item d-flex flex-column flex-md-row mb-5">
   <div class="publication-content mr-auto">
     <h3 class="mb-0"><a href="{{ .Permalink }}">{{ .Params.title }}{{ if .Params.subtitle }} <br> {{ .Params.subtitle }} {{ end }}</a></h3>
-	{{ if .Params.categories }}
-		<p>in {{ range $i,$e := .Params.categories }}
-			{{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
-			{{ end }}
-		</p>
-	{{ end }}
+  	{{ if .Params.categories }}
+  		<p class="mb-0">in {{ range $i,$e := .Params.categories }}
+  			{{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
+  			{{ end }}
+  		</p>
+  	{{ end }}
+    <span class="text-primary">{{ .PublishDate.Format "January 2, 2006"}}</span>
+  	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
+  	{{ if ge $diff 1 }} <p class="small">updated {{ .Lastmod.Format "January 2, 2006" }}</p>{{ end }}
     <div>{{ .Summary | safeHTML }}</div>
     <p>{{ partial "techtags" . }}</p>
   </div>
   <div class="resume-date text-md-right">
-    <span class="text-primary">
-		{{ if .PublishDate }}
-			{{ .PublishDate.Format "January 2, 2006"}}
-		{{ else }}
-			{{ .Date.Format "January 2, 2006" }}
-		{{ end }}
-	</span>
-	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
-	{{ if ge $diff 1 }}
-		<p class="small">updated {{ .Lastmod.Format "January 2, 2006" }}</p>
-	{{ end }}
     <img src="{{ .Params.image }}" style="max-width:250px;padding:5px;"/>
   </div>
 </div>
