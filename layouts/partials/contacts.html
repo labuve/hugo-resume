@@ -2,13 +2,17 @@
 	<div class="my-auto">
 		<div class="resume-item d-flex flex-column flex-md-row">
 			<div class="pr-4 mb-5">
-				<p>
+				<div class="d-flex flex-row">
 					<span class="fa-stack fa-lg">
 						<i class="fa fa-circle fa-stack-2x"></i>
 						<i class="fas fa-location-arrow fa-stack-1x fa-inverse"></i>
 					</span>
-					{{ .Site.Params.university }}, {{ .Site.Params.address }}, {{ .Site.Params.city }}, {{ .Site.Params.postcode }}, {{ .Site.Params.country }}
-				</p>
+					<table>
+						<tr><td>{{ .Site.Params.university }}</td></tr>
+						<tr><td>{{ .Site.Params.address }}</td></tr>
+						<tr><td>{{ .Site.Params.city }}, {{ .Site.Params.postcode }}, {{ .Site.Params.country }}</td></tr>
+					</table>
+				</div>
 
 				<p>
 					<span class="fa-stack fa-lg">
@@ -18,46 +22,40 @@
 					{{ .Site.Params.phone }}
 				</p>
 
-				<p>
 					<div class="d-flex flex-row">
 						<span class="fa-stack fa-lg">
 							<i class="fa fa-circle fa-stack-2x"></i>
 							<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
 						</span>
 						<table>
-							<tr>
-								<td>
-									<a href="mailto:{{ .Site.Params.primaryEmail }}">{{ .Site.Params.primaryEmail }}</a>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<a href="mailto:{{ .Site.Params.alternativeEmail }}">{{ .Site.Params.alternativeEmail }}</a>
-								</td>
-							</tr>
+							<tr><td><a href="mailto:{{ .Site.Params.primaryEmail }}">{{ .Site.Params.primaryEmail }}</a></td></tr>
+							<tr><td><a href="mailto:{{ .Site.Params.alternativeEmail }}">{{ .Site.Params.alternativeEmail }}</a></td></tr>
 						</table>
 					</div>
-				</p>
-				
-				{{ if .Site.Params.skype }}
-					<p>
-						<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fab fa-skype fa-stack-1x fa-inverse"></i>
-						</span>
-						<a href="skype:{{ .Site.Params.skype }}?chat">Skype</a>
-					</p>
-				{{ end }}
 
-				{{ range .Site.Params.handles }}
-					<p>
-						<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fab {{ if .icon}}fa-{{ .icon }}{{ else }}fa-{{ lower .name }}{{ end }} fa-stack-1x fa-inverse"></i>
-						</span>
-						<a href="{{ .link }}">{{ .name }}</a>
-					</p>
-				{{ end }}
+				<ul class="list-inline list-social-icons mb-0">
+					{{ if .Site.Params.skype }}
+					<li class="list-inline-item">
+            <a href="skype:{{ .Site.Params.skype }}?chat" data-toggle="tooltip" title="skype" data-offset="0 10">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fab fa-skype fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+					{{ end }}
+
+					{{ range .Site.Params.handles }}
+            <li class="list-inline-item">
+              <a href="{{ .link }}" data-toggle="tooltip" title="{{ .name }}" data-offset="0 10">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fab {{ if .icon}}fa-{{ .icon }}{{ else }}fa-{{ lower .name }}{{ end }} fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          {{ end }}
+				</ul>
 			</div>
 			<div class="pr-4 mb-5" style="-webkit-filter: grayscale(100%); filter: grayscale(100%);">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.7405541106845!2d11.288807101046536!3d43.7989963509061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132a5453abef3521%3A0xffc23d60764fca43!2sVilla+La+Fonte%2C+50014+Fiesole+FI%2C+Italy!5e0!3m2!1sen!2skz!4v1565886527853!5m2!1sen!2skz" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>

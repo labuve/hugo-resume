@@ -13,10 +13,7 @@
   						<h3 class="mb-0">{{ .title }}</h3>
   					{{ end }}
   					{{ if .coauthors }}
-  						<b>with {{ range $i, $e := .coauthors }}
-  							{{ if $i }}, {{ end }}{{ $e }}
-  						{{ end }}
-  						</b>
+  						<b>with {{ delimit .coauthors ", " " and " }}</b>
   					{{ end }}
   					{{ if .abstract }} <p>{{ .abstract | safeHTML }}</p> {{ end }}
   				</div>

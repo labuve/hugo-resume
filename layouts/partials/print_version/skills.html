@@ -1,10 +1,10 @@
 <section id="skills">
+	<h2>Skills</h2>
 	{{ range $.Site.Data.skills }}
-		<h2>{{ .grouping }}</h2>
-		<p>
-			{{ range $i,$e := .skills }}
-				{{ if $i }} · {{ end }}{{ $e.name }}
-			{{ end }}
-		</p>
+		{{ $skill_names := slice }}
+		{{ range .skills }}
+			{{ $skill_names = $skill_names | append .name }}
+		{{ end }}
+		<p>{{ .grouping }}: <span class="font-italic">{{ delimit $skill_names ", " }}</span></p>
 	{{ end }}
 </section>

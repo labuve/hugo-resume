@@ -8,12 +8,7 @@
 					<td>
 						<a href = "{{ .link }}">"{{ .title }}"</a>
 						{{ if .coauthors }}
-							with 
-							<span class="pubcoauthors">
-								{{ range $i, $e := .coauthors }}
-									{{ if $i }}, {{ end }}{{ $e }}
-								{{ end }}
-							</span>
+							with <span class="pubcoauthors">{{ delimit .coauthors ", " " and " }}</span>
 						{{ end }}
 						in <span class="journal">{{ .journal }}</span>
 					</td>
@@ -22,12 +17,7 @@
 				<p style="line-height: 1; ">
 					<span class="pubtitle">{{ .title }}</span>
 					{{ if .coauthors }}
-						with 
-						<span class="pubcoauthors">
-							{{ range $i, $e := .coauthors }}
-								{{ if $i }}, {{ end }}{{ $e }}
-							{{ end }}
-						</span>
+						with <span class="pubcoauthors">{{ delimit .coauthors ", " " and " }}</span>
 					{{ end }}
 				</p>
 			{{ end }}
