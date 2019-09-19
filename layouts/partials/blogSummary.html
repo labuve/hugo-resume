@@ -10,7 +10,7 @@
     <span class="text-primary">{{ .PublishDate.Format "January 2, 2006"}}</span>
   	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
   	{{ if ge $diff 1 }} <p class="small">updated {{ .Lastmod.Format "January 2, 2006" }}</p>{{ end }}
-    <div>{{ .Summary | safeHTML }}</div>
+    <div class="text-justify">{{ .Summary | safeHTML }}</div>
     <p>{{ partial "techtags" . }}</p>
   </div>
   <div class="resume-date text-md-right">

@@ -10,34 +10,36 @@
 		{{ else }}
 			{{ .Date.Format "January 2, 2006" }}
 		{{ end }}
-	</span> 
+	</span>
 	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
 	{{ if ge $diff 1 }}
 		| updated {{ .Lastmod.Format "January 2, 2006" }}
 	{{ end }}
-	
+
 	{{ if .Params.categories }}
-		<p>in {{ range $i,$e := .Params.categories }} 
+		<p>in {{ range $i,$e := .Params.categories }}
 			{{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
 			{{ end }}
 		</p>
 	{{ end }}
 	{{ if .Params.includeTOC }}
-		<div class="clearfix">
+		<div class="clearfix text-justify">
 			<div class="float-left mr-5 mb-3">
 				<b>Table of Contents</b>
 				{{ .TableOfContents }}
 			</div>
-			
+
 				{{ .Content }}
 				{{ with .Params.link }}<p>Project link: <a href="{{ . }}">{{ . }}</a></p>{{ end }}
 				{{ partial "techtags" . }}
-			
+
 		</div>
 	{{ else }}
-		{{ .Content }}
-		{{ with .Params.link }}<p>Project link: <a href="{{ . }}">{{ . }}</a></p>{{ end }}
-		{{ partial "techtags" . }}
+    <div class="text-justify">
+      {{ .Content }}
+  		{{ with .Params.link }}<p>Project link: <a href="{{ . }}">{{ . }}</a></p>{{ end }}
+  		{{ partial "techtags" . }}
+    </div>
 	{{ end }}
   </div>
 </section>
