@@ -10,7 +10,7 @@
 					</div>
 					<div class="pl-5">
 						{{ range .courses }}
-							<li><b>{{ .name }}</b>, {{ .range }}</li>
+							<li><b>{{ .name }}</b>{{ if .range }}, {{ .range }} {{ end }}</li>
 						{{ end }}
 					</div>
 				</div>
