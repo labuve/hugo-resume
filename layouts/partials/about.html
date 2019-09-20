@@ -1,6 +1,6 @@
 <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-	<div class="my-auto">
-		<div class="resume-item d-flex flex-column flex-md-row">
+	<div class="my-auto page-content">
+		<div class="resume-item d-flex flex-column flex-md-row justify-content-md-between">
 			<div class="resume-content my-5" id="about_card">
 				<span class="d-none d-lg-block center">
 					{{ if .Site.Params.profileImage }}
@@ -32,9 +32,11 @@
 				{{ .Content }}
 				<div class="my-5">
 					<h4>Research Interests</h4>
-					{{ range $i,$e := .Params.research_interests }}
-						{{ if $i }} · {{ end }} {{ title . }}
-					{{ end }}
+					<ul>
+						{{ range .Params.research_interests }}
+							<li>{{ . }}</li>
+						{{ end }}
+					</ul>
 				</div>
 			</div>
 		</div>
