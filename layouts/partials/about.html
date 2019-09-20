@@ -19,6 +19,11 @@
 					{{ .Site.Params.university }} ·
 					<a href="mailto:{{ .Site.Params.primaryEmail }}">{{ .Site.Params.primaryEmail }}</a>
 				</div>
+				<div class="mb-5 center">
+					{{ range .Site.Params.researcher_profiles }}
+						<i class="ai ai-{{ if .icon }}{{ .icon }}{{ else }}{{ lower .name }}{{ end }} ai-3x"></i>
+					{{ end }}
+				</div>
 				<div class="d-flex flex-row">
 					{{ if .Site.Params.showQr }}
 						<div class="mr-auto">
