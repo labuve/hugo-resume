@@ -30,7 +30,9 @@
       <link href="{{(printf "css/resume-%s.css" .) | relURL}}" rel="stylesheet">
     {{end}}
   {{ end }}
-  <link href="{{ "css/tweaks.css" | absURL }}" rel="stylesheet">
+  <link href="{{ "css/tweaks.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/lightmode.css" | relURL }}" rel="stylesheet">
+  <link href="{{ "css/darkmode.css" | relURL }}" rel="stylesheet">
   {{ .Hugo.Generator }}
   {{ block "headfiles" . }}
    <!-- pl;aceholder -->
