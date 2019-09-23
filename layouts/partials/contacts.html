@@ -2,70 +2,63 @@
 	<div class="my-auto page-content">
 		<div class="resume-item d-flex flex-column flex-md-row justify-content-md-between">
 			<div class="mb-5" id="contact-information">
-				<div class="d-flex flex-row">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fas fa-location-arrow fa-stack-1x fa-inverse"></i>
-					</span>
-					<table>
-						<tr>
-							<td>{{ .Site.Params.university }}</td>
-						</tr>
-						<tr>
-							<td>{{ .Site.Params.address }}</td>
-						</tr>
-						<tr>
-							<td>{{ .Site.Params.city }}, {{ .Site.Params.postcode }}, {{ .Site.Params.country }}</td>
-						</tr>
-					</table>
-				</div>
-
-				<p>
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fas fa-phone fa-stack-1x fa-inverse"></i>
-					</span>
-					{{ .Site.Params.phone }}
-				</p>
-
-				<div class="d-flex flex-row">
-					<span class="fa-stack fa-lg">
-						<i class="fa fa-circle fa-stack-2x"></i>
-						<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-					</span>
-					<table>
-						<tr>
-							<td><a href="mailto:{{ .Site.Params.primaryEmail }}">{{ .Site.Params.primaryEmail }}</a></td>
-						</tr>
-						<tr>
-							<td><a href="mailto:{{ .Site.Params.alternativeEmail }}">{{ .Site.Params.alternativeEmail }}</a></td>
-						</tr>
-					</table>
-				</div>
-
-				<ul class="list-inline list-social-icons mb-0 mt-3">
-					{{ if .Site.Params.skype }}
-					<li class="list-inline-item">
-						<a href="skype:{{ .Site.Params.skype }}?chat" data-toggle="tooltip" title="Skype" data-offset="0 10">
+				<table>
+					<tr>
+						<td>
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fab fa-skype fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-location-arrow fa-stack-1x fa-inverse"></i>
 							</span>
-						</a>
-					</li>
-					{{ end }}
-
-					{{ range .Site.Params.handles }}
-					<li class="list-inline-item">
-						<a href="{{ .link }}" data-toggle="tooltip" title="{{ .name }}" data-offset="0 10">
+						</td>
+						<td>{{ .Site.Params.university }}<br>{{ .Site.Params.address }}<br>{{ .Site.Params.city }}, {{ .Site.Params.postcode }}, {{ .Site.Params.country }}</td>
+					</tr>
+					<tr>
+						<td>
 							<span class="fa-stack fa-lg">
 								<i class="fa fa-circle fa-stack-2x"></i>
-								<i class="fab {{ if .icon}}fa-{{ .icon }}{{ else }}fa-{{ lower .name }}{{ end }} fa-stack-1x fa-inverse"></i>
+								<i class="fas fa-phone fa-stack-1x fa-inverse"></i>
 							</span>
-						</a>
-					</li>
-					{{ end }}
-				</ul>
+						</td>
+						<td>{{ .Site.Params.phone }}</td>
+					</tr>
+					<tr>
+						<td>
+							<span class="fa-stack fa-lg">
+								<i class="fa fa-circle fa-stack-2x"></i>
+								<i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+							</span>
+						</td>
+						<td><a href="mailto:{{ .Site.Params.primaryEmail }}">{{ .Site.Params.primaryEmail }}</a><br><a href="mailto:{{ .Site.Params.alternativeEmail }}">{{ .Site.Params.alternativeEmail }}</a></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<ul class="list-inline list-social-icons mb-0 mt-3">
+								{{ if .Site.Params.skype }}
+								<li class="list-inline-item">
+									<a href="skype:{{ .Site.Params.skype }}?chat" data-toggle="tooltip" title="Skype" data-offset="0 10">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x"></i>
+											<i class="fab fa-skype fa-stack-1x fa-inverse"></i>
+										</span>
+									</a>
+								</li>
+								{{ end }}
+
+								{{ range .Site.Params.handles }}
+								<li class="list-inline-item">
+									<a href="{{ .link }}" data-toggle="tooltip" title="{{ .name }}" data-offset="0 10">
+										<span class="fa-stack fa-lg">
+											<i class="fa fa-circle fa-stack-2x"></i>
+											<i class="fab {{ if .icon}}fa-{{ .icon }}{{ else }}fa-{{ lower .name }}{{ end }} fa-stack-1x fa-inverse"></i>
+										</span>
+									</a>
+								</li>
+								{{ end }}
+							</ul>
+						</td>
+					</tr>
+				</table>
+
 			</div>
 			<div class="mb-5" id="contact-map">
 			</div>
