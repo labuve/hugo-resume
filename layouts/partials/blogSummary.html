@@ -1,15 +1,18 @@
+{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
+
 <div class="resume-item d-flex flex-column flex-md-row mb-5">
   <div class="page-content mr-auto">
     <h3 class="mb-0"><a href="{{ .Permalink }}">{{ .Params.title }}{{ if .Params.subtitle }} <br> {{ .Params.subtitle }} {{ end }}</a></h3>
-  	{{ if .Params.categories }}
-  		<p class="mb-0">in {{ range $i,$e := .Params.categories }}
-  			{{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
-  			{{ end }}
-  		</p>
-  	{{ end }}
-    <span class="text-primary-light">{{ .PublishDate.Format "January 2, 2006"}}</span>
-  	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
-  	{{ if ge $diff 1 }} <p class="small">updated {{ .Lastmod.Format "January 2, 2006" }}</p>{{ end }}
+  	<p class="mb-0">
+      published on {{ .PublishDate.Format "January 2, 2006"}}
+      {{ if .Params.categories }}
+    		in {{ range $i,$e := .Params.categories }}
+    			{{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
+    			{{ end }}
+    	{{ end }}
+    </p>
+    {{ if ge $diff 1 }} <p class="small">updated on {{ .Lastmod.Format "January 2, 2006" }}</p>{{ end }}
+
     <div>{{ .Summary | safeHTML }}</div>
     <p>{{ partial "techtags" . }}</p>
   </div>

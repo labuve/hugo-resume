@@ -1,27 +1,21 @@
 {{ define "main" }}
 {{ partial "breadcrumbs" . }}
+{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
+
 <section class="resume-section p-3 p-lg-5 d-flex d-column">
   <div class="my-auto">
     <h2 class="mb-0"><span class="text-primary">{{ .Title }}</span></h2>
 	{{ if .Params.subtitle }} <h3 class="my-0 subtitle"><span class="text-primary">{{ .Params.subtitle }}</span></h3> {{ end }}
-    <span class="text-primary">
-		{{ if .PublishDate }}
-			{{ .PublishDate.Format "January 2, 2006"}}
-		{{ else }}
-			{{ .Date.Format "January 2, 2006" }}
-		{{ end }}
-	</span>
-	{{ $diff := div (sub .Lastmod.Unix .PublishDate.Unix) 86400 }}
-	{{ if ge $diff 1 }}
-		| updated {{ .Lastmod.Format "January 2, 2006" }}
-	{{ end }}
+  <p class="mb-0">
+    published on {{ .PublishDate.Format "January 2, 2006"}}
+    {{ if .Params.categories }}
+      in {{ range $i,$e := .Params.categories }}
+        {{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
+        {{ end }}
+    {{ end }}
+  </p>
+  <p class="small mb-5">{{ if ge $diff 1 }} updated on {{ .Lastmod.Format "January 2, 2006" }}{{ end }}</p>
 
-	{{ if .Params.categories }}
-		<p>in {{ range $i,$e := .Params.categories }}
-			{{ if $i }} · {{ end }} <a href="{{ "/categories/" | relURL }}{{ . | urlize }}">{{ title . }}</a>
-			{{ end }}
-		</p>
-	{{ end }}
 	{{ if .Params.includeTOC }}
 		<div class="clearfix text-justify">
 			<div class="float-left mr-5 mb-3">
