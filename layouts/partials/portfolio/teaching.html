@@ -1,20 +1,18 @@
 <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="teaching">
   <div class="my-auto page-content" id="teaching-content">
     {{ range .Site.Data.teaching }}
-		<h2 class="mb-5">Teaching experience</h2>
-			<div class="resume-item d-flex flex-column flex-md-row mb-5">
-				<div class="resume-content mr-auto">
-					<h3 class="mb-0">{{ .role }}</h3>
-					<div class="subheading mb-3">
-						{{ if .department }} {{ .department }},  {{ end }}{{ .company }}
-					</div>
-					<div class="pl-5">
-						{{ range .courses }}
-							<li><b>{{ .name }}</b>{{ if .range }}, {{ .range }} {{ end }}</li>
-						{{ end }}
-					</div>
-				</div>
-			</div>
+  		<h2>Teaching experience</h2>
+      <div class="resume-content">
+        <h3>{{ .role }}</h3>
+        <div class="subheading">
+          {{ if .department }} {{ .department }},  {{ end }}{{ .company }}
+        </div>
+        <div class="pl-5">
+          {{ range .courses }}
+            <li><b>{{ .name }}</b>{{ if .range }}, {{ .range }} {{ end }}</li>
+          {{ end }}
+        </div>
+      </div>
     {{ end }}
   </div>
 

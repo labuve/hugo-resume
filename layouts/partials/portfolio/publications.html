@@ -1,23 +1,21 @@
 <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="publications">
   <div class="my-auto page-content" id="publications-content">
     {{ range .Site.Data.publications }}
-		<h2 class="mb-5">{{ .section }} </h2>
+		<h2>{{ .section }} </h2>
 		{{ range .content }}
       {{ if not .hidden }}
-  			<div class="resume-item d-flex flex-column flex-md-row mb-5">
-  				<div class="resume-content mr-auto">
-  					{{ if .date }}
-  						<h3 class="mb-0"><a href = "{{ .link }}">{{ .title }} ({{ .date }})</a></h3>
-  						<div class="subheading mb-3">{{ .journal }}</div>
-  					{{ else }}
-  						<h3 class="mb-0">{{ .title }}</h3>
-  					{{ end }}
-  					{{ if .coauthors }}
-  						<b>with {{ delimit .coauthors ", " " and " }}</b>
-  					{{ end }}
-  					{{ if .abstract }} <p>{{ .abstract | safeHTML }}</p> {{ end }}
-  				</div>
-  			</div>
+        <div class="resume-content">
+          {{ if .date }}
+            <h3><a href = "{{ .link }}">{{ .title }} ({{ .date }})</a></h3>
+            <div class="subheading">{{ .journal }}</div>
+          {{ else }}
+            <h3>{{ .title }}</h3>
+          {{ end }}
+          {{ if .coauthors }}
+            <b>with {{ delimit .coauthors ", " " and " }}</b>
+          {{ end }}
+          {{ if .abstract }} <p>{{ .abstract | safeHTML }}</p> {{ end }}
+        </div>
       {{ end }}
 		{{ end }}
 	{{ end }}
